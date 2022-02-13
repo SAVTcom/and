@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+
+<h1 id="resultText"></h1>
+<button onclick="click()" id="cl" disabled="disabled"><h1>CLICK ON<br>THIS BUTTON</h1></button>
+<button onclick="begin()" id="super" ><h2>Begin</h2></button>
+
+<script>
+	var i=0;
+	var but=document.getElementById('cl');
+	var beg=document.getElementById('super');
+	var text=document.getElementById('resultText')
+	but.onclick=click
+	beg.onclick=begin
+
+	function end(){
+		but.setAttribute("disabled","disabled");
+		beg.removeAttribute("disabled");
+		var CPS=i/5;
+		text.innerHTML="You clicked "+i+" times in 5 seconds.<br>Your CPS "+CPS+"!";
+
+	}
+
+	function begin(){
+		text.innerHTML=""
+		but.removeAttribute("disabled");
+		beg.setAttribute("disabled","disabled");
+
+		setTimeout(end,5000);
+	}
+
+	function click() {
+		i+=1;
+	}
+</script>
+</body>
+</html>
